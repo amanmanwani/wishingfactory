@@ -1,0 +1,73 @@
+<div class="head2">
+	<h4>Wishing factory Admin</h4></div>
+<div class="heading">
+<h3>Pending Approvals</h3></div>
+<table align="center" border="1" cellpadding="2px" class="fulfilled1">
+		<thead>
+			<tr class="thead">
+				<th width="10%">Name</th>
+				<th>Type (Wish)</th>
+				<th>Details (Wish Details)</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let i of pendings">
+				<td height="40" >{{ i.name }}</td>
+				<td>{{ i.type }}</td>
+				<td>{{ i.details }}</td>
+				<td>
+					<button class="btn btn-default btn-sm" id="but" (click)="approve();"
+					>Approve</button>
+					<div [ngStyle]="{'display':display}"></div>
+					<div class="modal" id="ApproveModal" role="dialog" [ngStyle]="{'display':display}">
+						<div class="modal-dialog modalCenter" role="document">
+							<div class="modal-content">
+								<div class="modal-body">
+									<form><label><b>Enter the Budget</b></label><br>
+										  <input type="text" name="budget" class="budget" placeholder=" Enter Budget:" size="50"><br>
+										  <button class="btn btn-default pull-right" id="but1" data-dismiss="modal">OK</button>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>&nbsp;&nbsp;
+					<button class="btn btn-default btn-sm" id="but" (click)="reject();">Reject</button>
+					<div [ngStyle]="{'display':display}"></div>
+					<div class="modal" id="RejectModal" role="dialog" >
+						<div class="modal-dialog modalCenter" role="document">
+							<div class="modal-content">
+								<div class="modal-body">
+									<form><label><b>Enter the reason for rejection</b></label><br>
+										  <input type="text" name="reason" class="reason" placeholder=" Enter the Reason:" size="50">
+										  <button class="btn btn-primary pull-right" id="but1" data-dismiss="modal">OK</button>
+										</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+</table>
+
+<div class="heading">
+	<h3>Wishes Fulfilled</h3></div>
+		<table border="1px" class="fulfilled" cellpadding="2px" width="70%">
+			<thead>
+				<tr class="thead">
+					<th>Name</th>
+					<th>Wish</th>
+					<th>Donor</th>
+					<th>Cost</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let i of fulfilled">
+					<td height="40">{{ i.name }}</td>
+					<td>{{ i.wish }}</td>
+					<td>{{ i.donor }}</td>
+					<td>{{ i.cost }}</td>
+				</tr>				
+			</tbody>
+		</table>
